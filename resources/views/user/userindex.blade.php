@@ -38,12 +38,12 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
-                            <a href="/useradd" class="btn add btn-success">
+                            <!-- <a href="/useradd" class="btn add btn-success">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="text">Add new employee</span>
-                            </a>
+                            </a> -->
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -77,7 +77,7 @@
                                     @foreach($Users as $user)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ $user->avatar}}"width="70" height="80"></td>
+                                        <td><img class="img-profile rounded-circle" src="{{ $user->avatar}}"width="70" height="80"></td>
                                         <td>{{ $user->name }}</td>
 
                                         <td>{{ $user->post }}</td>

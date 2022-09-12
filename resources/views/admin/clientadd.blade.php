@@ -92,7 +92,7 @@ background-image: url("https://cdn.pixabay.com/photo/2018/03/11/09/09/time-32162
                                
                                 <a href="/clientindex" class="btn btn-secondary btn-icon-split">
                                         <span class="icon text-white-50">
-                                            <i class="fas fa-arrow-right"></i>
+                                            <i class="fas fa-arrow-left"></i>
                                         </span>
                                         <span class="text">Cancel</span>
                                 </a>

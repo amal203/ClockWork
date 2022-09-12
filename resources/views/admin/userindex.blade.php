@@ -79,7 +79,7 @@
                                     @foreach($Users as $user)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ $user->avatar}}"width="70" height="80"></td>
+                                        <td><img class="img-profile rounded-circle" src="{{ $user->avatar}}"width="70" height="80"></td>
                                         <td>{{ $user->name }}</td>
 
                                         <td>{{ $user->post }}</td>

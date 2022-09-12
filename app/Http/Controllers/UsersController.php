@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\User; 
+use App\Models\Task; 
+
 use Illuminate\Support\Facades\Hash;
 
 
@@ -46,13 +48,17 @@ class UsersController extends Controller{
     public function show ($id)
     {
         $user = User::find($id);
-        return view('admin.usershow', ['user' => $user]);
+        $getTask = User::find($id)->getTask()->get()->sortBy("deadline_t");
+
+        return view('admin.usershow', ['user' => $user,'geTask'=>$getTask]);
     }
 
     public function ushow ($id)
     {
         $user = User::find($id);
-        return view('user.usershow', ['user' => $user]);
+        $getTask = User::find($id)->getTask()->get()->sortBy("deadline_t");
+
+        return view('user.usershow', ['user' => $user,'geTask'=>$getTask]);
     }
  
 

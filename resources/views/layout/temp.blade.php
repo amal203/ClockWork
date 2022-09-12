@@ -38,7 +38,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Work
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -63,6 +63,12 @@
                     <span>Projects</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="/alltaskindex">
+                    <i class="fas fa-fw fa-tasks"></i>
+                    <span>Tasks</span></a>
+            </li>
+
             <!-- Nav Item - Utilities Collapse Menu -->
             <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -82,18 +88,14 @@
                 </div>
             </li> -->
 
-            <li class="nav-item">
-                <a class="nav-link" href="/userindex">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Employees</span></a>
-            </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Persons
             </div>
 
 
@@ -126,10 +128,12 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                <a class="nav-link" href="/userindex">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Employees</span></a>
             </li>
+            
+           
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
@@ -142,7 +146,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Other
             </div>
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
@@ -151,11 +155,7 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="/alltaskindex">
-                    <i class="fas fa-fw fa-tasks"></i>
-                    <span>Tasks</span></a>
-            </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

@@ -76,13 +76,13 @@
                                     </div>
                                     </div>
                              
-                                      <a  href="/projectindex/{{ $project->id }}/taskindex" class="btn btn-primary btn-icon-split">
+                                      <!-- <a  href="/projectindex/{{ $project->id }}/taskindex" class="btn btn-primary btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-flag"></i>
                                         </span>
                                         <span class="text">Tasks</span>
                                         
-                                      </a>
+                                      </a> -->
                                       <hr>
                                
                                 
@@ -100,7 +100,7 @@
                                
                                 <a href="/projectindex" class="btn btn-secondary btn-icon-split">
                                         <span class="icon text-white-50">
-                                            <i class="fas fa-arrow-right"></i>
+                                            <i class="fas fa-arrow-left"></i>
                                         </span>
                                         <span class="text">Cancel</span>
                                 </a>

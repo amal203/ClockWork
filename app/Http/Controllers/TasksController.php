@@ -22,9 +22,9 @@ class TasksController extends Controller
 
     public function index(Request $request)
     {   
-        $Tasks = Task::all()->sortBy("deadline_t");
+        $getTask = Task::all()->sortBy("deadline_t");
         if($request->input('isearch')){
-            $Tasks = DB::table('tasks')
+            $getTask = DB::table('tasks')
                         ->where('description_t', 'like', "%" . $request->isearch . "%")
                         ->get();}
                         // $task = Task::find($id);
@@ -34,7 +34,7 @@ class TasksController extends Controller
         
 
         // return view('admin.alltask', ['Tasks' => $Tasks,'project_id' => $project_id,'project' => $project]);
-                return view('admin.alltask', ['Tasks' => $Tasks]);
+                return view('admin.alltask', ['getTask' => $getTask]);
 
 
     }
@@ -89,15 +89,15 @@ class TasksController extends Controller
         }     
     public function uindex(Request $request)
     {
-        $Tasks = Task::all()->sortBy("deadline_t");
+        $getTask = Task::all()->sortBy("deadline_t");
         if($request->input('isearch')){
-            $Tasks = DB::table('tasks')
+            $getTask = DB::table('tasks')
                         ->where('description_t', 'like', "%" . $request->isearch . "%")
                         ->get();}
         
         
 
-        return view('user.alltask', ['Tasks' => $Tasks]);
+        return view('user.alltask', ['getTask' => $getTask]);
     }
     
 

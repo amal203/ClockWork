@@ -80,7 +80,7 @@
                                 <hr>
                                 <a href="/projectindex/{{$project_id}}/ptaskindex" class="btn btn-secondary btn-icon-split">
                                         <span class="icon text-white-50">
-                                            <i class="fas fa-arrow-right"></i>
+                                            <i class="fas fa-arrow-left"></i>
                                         </span>
                                         <span class="text">Cancel</span>
                                 </a>

@@ -104,6 +104,7 @@ Route::get('/useradd', [UsersController::class, 'create']);
 Route::get('/userindex/{user}/edit', [UsersController::class, 'edit']);
 Route::put('/userindex/{user}', [UsersController::class, 'update']);
 Route::delete('/userindex/{user}', [UsersController::class, 'destroy']);
+Route::get('/userindex/{user}/show', [UsersController::class, 'show']);
 
 
 // adminclient//
@@ -169,6 +170,7 @@ Route::patch('/uprojectindex/{project}/uptaskindex/{task}', [TasksController::cl
 
 Route::patch('/yourtasks/{task}', [TasksController::class, 'utakecom2']);
 Route::get('/ualltaskindex', [TasksController::class, 'uindex']);
+Route::get('/uuserindex/{user}/show', [UsersController::class, 'ushow']);
 
 
 

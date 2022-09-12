@@ -1,4 +1,4 @@
-@extends('layout.topbar')
+@extends('layout.top')
 @section('head')
 
     <meta charset="utf-8">
@@ -24,7 +24,7 @@
 
 <!-- Page Heading -->
 <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">{{ $project->title }}</h1>
+    <h1 class="h3 mb-0 text-gray-800">{{ $task->title }}</h1>
 </div> -->
 
 <div class="row">
@@ -35,8 +35,8 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Project details</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $project->title }}</div>
+                                Earnings (Monthly)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -45,10 +45,72 @@
                 </div>
             </div>
         </div>
+
+        <!-- Earnings (Annual) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Earnings (Annual)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-      
-    
+        <!-- Tasks Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Pending Requests</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="row">
 
@@ -57,27 +119,11 @@
             <!-- Default Card Example -->
             <div class="card mb-4">
                 <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Client</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Number</h6>
                 </div>
-              
-
-                
-                
                 <div class="card-body">
-                  
-                    
-                    @foreach($getClient as $client) 
-
-                        {{ $client->name }}  
-                      
-                                                   
-                    @endforeach                  
+                {{ $task->number }}
                 </div>
-
-          
-              
-              
-
             </div>
 
             <!-- Basic Card Example -->
@@ -86,7 +132,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Description</h6>
                 </div>
                 <div class="card-body">
-                {{ $project->description }}
+                {{ $task->description_t }}
 
                 </div>
             </div>
@@ -99,7 +145,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Deadline</h6>
                 </div>
                 <div class="card-body">
-                {{ $project->deadline }}
+                {{ $task->deadline_t }}
                 </div>
             </div>
 
@@ -109,7 +155,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Created_at</h6>
                 </div>
                 <div class="card-body">
-                {{ $project->created_at }}
+                {{ $task->created_at }}
 
                 </div>
             </div>
@@ -118,7 +164,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Updated_at</h6>
                 </div>
                 <div class="card-body">
-                {{ $project->updated_at }}
+                {{ $task->updated_at }}
 
                 </div>
             </div>
@@ -133,21 +179,22 @@
                 <!-- Card Header - Accordion -->
                 <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
                     role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Tasks</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Project</h6>
                 </a>
                 <!-- Card Content - Collapse -->
                 <div class="collapse show" id="collapseCardExample">
                     <div class="card-body">
-                    @foreach($getTask as $task)
+                                    @foreach($getproject as $project)
                                     <table>
                                     <tr>
-                                        <td>{{ $task->number }}</td> 
-                                        <td>&ensp;</td>                                         
-                                        <td> {{$task->description_t}}</td>
+                                        <td>{{$project->title}}:</td>
+                                        <td>&ensp;</td>                                            
+                                        <td>Client: {{$project->client}}</td>
                                         <td>&ensp;</td>   
-                                        <td>Deadline{{ $task->deadline_t }}</td>
+                                        <td>Deadline{{$project->deadline}}</td>
                                     </tr>
                                     @endforeach
+
                                     </table>    
 
                     </div>
@@ -172,24 +219,7 @@
     </div>
 </div>
 </footer> -->
-<!-- <div class="card">
-  <div class="card-header">Contactus Page</div>
-  <div class="card-body">
-  
-        <div class="card-body">
-        <h5 class="card-title">Title : {{ $project->title }}</h5>
-        <p class="card-text">Description : {{ $project->description }}</p>
-        <p class="card-text">Client : {{ $project->client }}</p>
-        <p class="card-text">Deadline : {{ $project->deadline }}</p>
-        <p class="card-text">Created_at : {{ $project->created_at }}</p>
-        <p class="card-text">Updated_at : {{ $project->updated_at }}</p>
-       
-  </div>
-      
-    </hr>
-  
-  </div>
-</div -->
+
 
     <!-- Bootstrap core JavaScript-->
     <!-- <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>

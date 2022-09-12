@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>projectshow</title>
+    <title>usershow</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -24,31 +24,36 @@
 
 <!-- Page Heading -->
 <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">{{ $project->title }}</h1>
+    <h1 class="h3 mb-0 text-gray-800"></h1>
 </div> -->
 
-<div class="row">
-        <!-- Earnings (Monthly) Card Example -->
+
+
+        <!-- Pending Requests Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Project details</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $project->title }}</div>
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            User details</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $user->name }}</div>
+                            @if(Cache::has('user-is-online-' . $user->id))
+    <span class="badge badge-success">Online</span>
+@else
+    <span class="badge badge-danger">Offline</span>
+@endif
+</br>
+{{ Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            <img src="{{ $user->avatar}}"width="70" height="80">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-
-      
-    
+   
 
     <div class="row">
 
@@ -57,7 +62,7 @@
             <!-- Default Card Example -->
             <div class="card mb-4">
                 <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Client</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Post</h6>
                 </div>
               
 
@@ -66,12 +71,10 @@
                 <div class="card-body">
                   
                     
-                    @foreach($getClient as $client) 
 
-                        {{ $client->name }}  
+                        {{ $user->post }}  
                       
                                                    
-                    @endforeach                  
                 </div>
 
           
@@ -83,25 +86,58 @@
             <!-- Basic Card Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Description</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Adress</h6>
                 </div>
                 <div class="card-body">
-                {{ $project->description }}
+                {{ $user->adress }}
 
                 </div>
             </div>
 
-        </div>
+            <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <h6 class="m-0 font-weight-bold text-primary">Contact</h6>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse show" id="collapseCardExample">
+                    <div class="card-body">
+                                    <table>
+                                    <tr>
+                                        <td>{{ $user->email }}</td> 
+                                        <td>&ensp;</td>                                         
+                                        <td> {{$user->phone_number }}</td>
+                                        <td>&ensp;</td>   
+                                        <td></td>
+                                    </tr>
+                                    </table>    
 
+                    </div>
+                    </div>
+                    </div>
+
+        </div>
+    
         <div class="col-lg-6">
         <div class="card mb-4">
                 <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Deadline</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Birthdate</h6>
                 </div>
                 <div class="card-body">
-                {{ $project->deadline }}
+                {{ $user->birthdate }}
                 </div>
             </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">Gender</h6>
+                </div>
+                <div class="card-body">
+                {{ $user->gender }}
+                </div>
+            </div>
+
 
             <!-- Basic Card Example -->
             <div class="card shadow mb-4">
@@ -109,7 +145,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Created_at</h6>
                 </div>
                 <div class="card-body">
-                {{ $project->created_at }}
+                {{ $user->created_at }}
 
                 </div>
             </div>
@@ -118,7 +154,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Updated_at</h6>
                 </div>
                 <div class="card-body">
-                {{ $project->updated_at }}
+                {{ $user->updated_at }}
 
                 </div>
             </div>
@@ -129,28 +165,7 @@
         <div class="col-lg-6">
 
             <!-- Collapsable Card Example -->
-            <div class="card shadow mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
-                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Tasks</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="collapseCardExample">
-                    <div class="card-body">
-                    @foreach($getTask as $task)
-                                    <table>
-                                    <tr>
-                                        <td>{{ $task->number }}</td> 
-                                        <td>&ensp;</td>                                         
-                                        <td> {{$task->description_t}}</td>
-                                        <td>&ensp;</td>   
-                                        <td>Deadline{{ $task->deadline_t }}</td>
-                                    </tr>
-                                    @endforeach
-                                    </table>    
-
-                    </div>
+            
                 </div>
             </div>
 
@@ -172,24 +187,7 @@
     </div>
 </div>
 </footer> -->
-<!-- <div class="card">
-  <div class="card-header">Contactus Page</div>
-  <div class="card-body">
-  
-        <div class="card-body">
-        <h5 class="card-title">Title : {{ $project->title }}</h5>
-        <p class="card-text">Description : {{ $project->description }}</p>
-        <p class="card-text">Client : {{ $project->client }}</p>
-        <p class="card-text">Deadline : {{ $project->deadline }}</p>
-        <p class="card-text">Created_at : {{ $project->created_at }}</p>
-        <p class="card-text">Updated_at : {{ $project->updated_at }}</p>
-       
-  </div>
-      
-    </hr>
-  
-  </div>
-</div -->
+
 
     <!-- Bootstrap core JavaScript-->
     <!-- <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>

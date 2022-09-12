@@ -38,7 +38,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Work
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -63,6 +63,13 @@
                     <span>Projects</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="/yourtasks">
+                <i class="fas fa-fw fa-tasks"></i>
+                    <span>Your Tasks</span></a>
+            </li>
+            
+
             <!-- Nav Item - Utilities Collapse Menu -->
             <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -82,18 +89,13 @@
                 </div>
             </li> -->
 
-            <li class="nav-item">
-                <a class="nav-link" href="/uuserindex">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Employees</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Persons
             </div>
 
 
@@ -124,13 +126,15 @@
                 </div>
             </li> -->
 
-            <!-- Nav Item - Charts -->
+            
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                <a class="nav-link" href="/uuserindex">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Employees</span></a>
             </li>
 
+            <!-- Nav Item - Charts -->
+           
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="/uclientindex">
@@ -141,7 +145,7 @@
 
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
-                Addons
+                Other
             </div>
 
             <!-- Nav Item - Charts -->
@@ -152,11 +156,6 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="/yourtasks">
-                <i class="fas fa-fw fa-tasks"></i>
-                    <span>Your Tasks</span></a>
-            </li>
             
             
             

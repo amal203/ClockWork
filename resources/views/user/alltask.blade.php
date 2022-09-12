@@ -75,7 +75,7 @@
                                     </tfoot>
                                     <tbody>
                                         
-                                    @foreach($Tasks as $task)
+                                    @foreach($getTask as $task)
                                     <tr>
                                     <td>{{ $loop->iteration }}</td>                                     
                                         <td><?php $str = $task->description_t;
@@ -111,16 +111,15 @@
 
                                              <form action="/uprojectindex/{{ $task->project_id }}/uptaskindex/{{ $task->id }}" method="post">
                                               
-                                             @if ($task->isCompleted())
-                                             <span class="badge badge-success">Done</span>
+                                             @if (method_exists($task, 'isCompleted') && $task->isCompleted())                                             <span class="badge badge-success">Done</span>
                                              @endif
-                                             @if ($task->isToday())
+                                             @if (method_exists($task, 'isToday') && $task->isToday())
                                              <span class="badge badge-danger">The deadline is today </span>
                                              @endif
                                              <br>
                                              <input type="hidden" name="_method" value="PATCH">
                                              @csrf
-                                             @if (!$task->isCompleted())
+                                             @if (method_exists($task, 'isCompleted') && !$task->isCompleted() )
                                              <button  type="submit" class="btn btn-secondary">
                                              <span class="icon text-white-50">
                                         </span>
